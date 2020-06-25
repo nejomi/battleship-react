@@ -1,26 +1,43 @@
 const Gameboard = (size) => {
   const status = {
-    hit: 0,
-    miss: 0,
+    hits: 0,
+    misses: 0,
   };
 
-  let board = Array.from(Array(size), (_) => Array(size).fill(null));
+  const cell = {
+    ship: null,
+    hit: 0,
+  };
+
+  let board = Array.from(Array(size), (_) => Array(size).fill(cell));
   let ships = [];
 
   const placeShip = (ship, x, y, rotate) => {
     ships.push(ship);
+    const copyBoard = [...board];
 
     if (rotate) {
       for (let i = x; i < x + ship.getLength(); i++) {
-        board[i][y] = ships.indexOf(ship);
+        const shipIndex = ships.indexOf(ship);
+        let cell = { ...copyBoard[i][y] };
+        cell.ship = shipIndex;
+        copyBoard[i][y] = cell;
       }
+      board = copyBoard;
       return;
     }
 
     for (let i = y; i < y + ship.getLength(); i++) {
-      board[x][i] = ships.indexOf(ship);
+      const shipIndex = ships.indexOf(ship);
+      let cell = { ...copyBoard[x][i] };
+      cell.ship = shipIndex;
+      copyBoard[x][i] = cell;
     }
+
+    board = copyBoard;
   };
+
+  const recieveAttack = (x, y) => {};
 
   return {
     board,
