@@ -1,10 +1,10 @@
 const Ship = (length) => {
-  // an array filled with '0'
-  let hitStatus = Array.from(Array(3), () => 0);
+  // an array with length 'length' filled with '0'
+  let hitStatus = Array.from(Array(length), () => 0);
   let sunkStatus = false;
 
   const getLength = () => length;
-
+  const getStatus = () => hitStatus;
   // 'hit' a part of the ship, then check if all parts are hit
   const hit = (num) => {
     // cannot hit the same spot
@@ -24,7 +24,7 @@ const Ship = (length) => {
     return sunkStatus ? true : false;
   };
 
-  return { getLength, hit, isSunk };
+  return { getLength, getStatus, hit, isSunk };
 };
 
 export default Ship;
