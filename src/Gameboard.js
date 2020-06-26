@@ -23,7 +23,7 @@ const Gameboard = (size) => {
 
     // if rotate parameter is set do this
     if (rotate) {
-      for (let i = y, count = 0; i < ship.getLength() + 1; i++, count++) {
+      for (let i = x, count = 0; i < ship.getLength() + 1; i++, count++) {
         // copy the coordinate's cell
         let currCell = { ...copyBoard[i][y] };
 
@@ -34,7 +34,7 @@ const Gameboard = (size) => {
       }
     } // no rotate parameter set
     else {
-      for (let i = x, count = 0; i < ship.getLength() + 1; i++, count++) {
+      for (let i = y, count = 0; i < ship.getLength() + 1; i++, count++) {
         // copy the coordinate's cell
         let currCell = { ...copyBoard[x][i] };
 
@@ -66,10 +66,16 @@ const Gameboard = (size) => {
     ships[shipNumber].hit(shipIndex);
     status.hits.push({ x, y });
   };
+
+  // check if all ships are sunk
+  const checkShips = () => {
+    return ships.every((ship) => ship.isSunk() === true);
+  };
   return {
     getBoard,
     placeShip,
     recieveAttack,
+    checkShips,
   };
 };
 

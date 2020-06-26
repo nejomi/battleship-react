@@ -4,9 +4,11 @@ import Gameboard from './Gameboard';
 import Ship from './Ship';
 
 const g = Gameboard(10);
-g.placeShip(Ship(2), 1, 1, true);
+g.placeShip(Ship(1), 1, 1);
+g.placeShip(Ship(1), 1, 0, true);
 g.recieveAttack(1, 1);
-g.recieveAttack(2, 1);
+g.recieveAttack(1, 0);
+console.log(g.checkShips());
 console.log(g.getBoard());
 
 function App() {
