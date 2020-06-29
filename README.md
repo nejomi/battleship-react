@@ -1,10 +1,16 @@
 # Battleship
-I made this project with React! It is the first react application that I made. I was supposed to use TDD but I got lost when I was creating my components. 
+
+I made this project with React! It is the first react application that I made. I was supposed to use TDD but I got lost when I was creating my components.
 The bot just clicks random places.
+
+## Screenshot
+
+<img src="screenshot.PNG">
+<hr>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
