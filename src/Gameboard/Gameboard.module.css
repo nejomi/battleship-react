@@ -1,0 +1,44 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 45px [col-start]);
+  background-color: #1f2739;
+  grid-gap: 1px;
+  border: 1px solid black;
+  width: 459px;
+}
+.cell {
+  width: 45px;
+  height: 45px;
+  background-color: #fafafa;
+}
+.ship {
+  background-color: #829aab;
+}
+.hit {
+  background-color: #e22727;
+}
+.ocean {
+  background-color: #a5d5ff;
+}
+.Gameboard {
+  margin-left: 15px;
+}
+.readonly {
+  pointer-events: none;
+}
+.settings {
+  position: fixed;
+  margin-top: 50px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+input {
+  height: 30px;
+  width: 30px;
+}
+.rotate {
+  display: flex;
+  align-items: center;
+}

@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.gameboards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 75px;
+}
+
+body {
+  background-color: #1f2739;
+  color: #fafafa;
+  font-family: Roboto;
+}
+
+h1 {
+  font-family: 'Roboto Mono';
+  text-align: center;
+}

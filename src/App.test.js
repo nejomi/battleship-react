@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 import Ship from './Ship';
-import Gameboard from './Gameboard';
+import Gameboard from './Gameboard/Gameboard';
 
 test('Ship factory returns an object correctly', () => {
   const destroyer = Ship(4);
