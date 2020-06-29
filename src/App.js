@@ -91,28 +91,31 @@ const shipPieces = [5, 4, 3, 3, 2];
 // ____________________________________________________ //
 
 class App extends React.Component {
+  static initialState = {
+    player: {
+      board: createBoard(10),
+      stats: { hits: [], misses: [] },
+      ships: [],
+    },
+    computer: {
+      board: createBoard(10),
+      stats: { hits: [], misses: [] },
+      ships: [],
+    },
+    status: {
+      start: false,
+      currentIndex: 0,
+    },
+  };
   constructor(props) {
     super(props);
-    this.state = {
-      player: {
-        board: createBoard(10),
-        stats: { hits: [], misses: [] },
-        ships: [],
-      },
-      computer: {
-        board: createBoard(10),
-        stats: { hits: [], misses: [] },
-        ships: [],
-      },
-      status: {
-        start: false,
-        currentIndex: 0,
-      },
-    };
+    this.state = App.initialState;
     this.newAttack = this.newAttack.bind(this);
     this.newShip = this.newShip.bind(this);
     this.updateCurrent = this.updateCurrent.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.checkWin = this.checkWin.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   newAttack(x, y, number, index, user) {
@@ -192,11 +195,19 @@ class App extends React.Component {
         user = 'Computer!';
       }
       alert('Winner: ' + user);
+      this.reset();
     } else {
       console.log('No winner yet');
     }
   }
 
+  reset() {
+    // let initState = App.initialState;
+    // initState.player.board = createBoard(10);
+    // initState.computer.board = createBoard(10);
+    // this.setState({ ...initState });
+    // this.setComputerShips();
+  }
   startGame() {
     let status = { ...this.state.status };
     status.start = true;
@@ -228,6 +239,10 @@ class App extends React.Component {
 
   // random ships for computer Gameboard
   UNSAFE_componentWillMount() {
+    this.setComputerShips();
+  }
+
+  setComputerShips() {
     // ship pieces that are valid
     const ships = shipPieces; // [5,4,3,2,2]
     let rotate;
@@ -275,6 +290,7 @@ class App extends React.Component {
             randomCoordinate={this.randomCoords}
           />
         </div>
+        {/* <button onClick={this.reset}>reset</button> */}
       </div>
     );
   }
