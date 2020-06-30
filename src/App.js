@@ -109,7 +109,7 @@ class App extends React.Component {
   };
   constructor(props) {
     super(props);
-    this.state = App.initialState;
+    this.state = { ...App.initialState };
     this.newAttack = this.newAttack.bind(this);
     this.newShip = this.newShip.bind(this);
     this.updateCurrent = this.updateCurrent.bind(this);
@@ -203,10 +203,17 @@ class App extends React.Component {
 
   reset() {
     // let initState = App.initialState;
+    // let player = { ...this.state.player };
+    // player = {
+    //   board: createBoard(10),
+    //   stats: { hits: [], misses: [] },
+    //   ships: [],
+    // };
+    // this.setState({ player: player });
     // initState.player.board = createBoard(10);
     // initState.computer.board = createBoard(10);
-    // this.setState({ ...initState });
     // this.setComputerShips();
+    // console.log(this.state);
   }
   startGame() {
     let status = { ...this.state.status };
@@ -290,7 +297,7 @@ class App extends React.Component {
             randomCoordinate={this.randomCoords}
           />
         </div>
-        {/* <button onClick={this.reset}>reset</button> */}
+        <button onClick={this.reset}>reset</button>
       </div>
     );
   }

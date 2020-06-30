@@ -3,6 +3,8 @@
 I made this project with React! It is the first react application that I made. I was supposed to use TDD but I got lost when I was creating my components.
 The bot just clicks random places.
 
+Game doesn't reset if someone wins. I'm having trouble resetting the state I might fix it in the future after creating more React Apps.
+
 ## Screenshot
 
 <img src="screenshot.PNG">
